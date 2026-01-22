@@ -54,6 +54,10 @@ class AICaller:
             model (str): The name of the model to be used.
             api_base (str): The base API URL to use in case the model is set to Ollama or Hugging Face.
         """
+        # 配置 litellm 使用本地模型价格文件，避免网络请求
+        # 这对于打包后的应用很重要，因为文件已经包含在包中
+        os.environ.setdefault("LITELLM_LOCAL_MODEL_COST_MAP", "True")
+        
         self.model = model
         self.api_base = api_base
         self.enable_retry = enable_retry

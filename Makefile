@@ -42,6 +42,7 @@ installer:
 		$(TOML_FILES) \
 		--add-data "$(SITE_PACKAGES)/vendor:wandb/vendor" \
 		--add-data "build_helpers/anthropic_tokenizer.json:litellm/litellm_core_utils/tokenizers" \
+		--add-data "build_helpers/model_prices_and_context_window_backup.json:litellm" \
 		--add-data "$(DIFF_COVER_TEMPLATES):diff_cover/templates" \
 		--hidden-import=tiktoken_ext.openai_public \
 		--hidden-import=tiktoken_ext \
